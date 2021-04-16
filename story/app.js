@@ -18,6 +18,10 @@ import {
     fireRunWeekdayTime,
 } from './charts/punchCard.js'
 
+import {
+    fireRunCalender
+} from './charts/calender.js'
+
 const charts = {
     fireRunsPerYear: {
         id: 'fireRunsPerYear',
@@ -27,6 +31,9 @@ const charts = {
     },
     fireRunWeekdayTime: {
         id: 'fireRunWeekdayTime',
+    },
+    fireRunCalender: {
+        id: 'fireRunCalender',
     }
 };
 
@@ -52,6 +59,7 @@ async function buildPage() {
     charts.fireRunsPerYear.config = fireRunsPerYearConfig(data, years);
     charts.fireRunsPerTypeYear.config = fireRunsPerTypeYearConfig(data, years); 
     charts.fireRunWeekdayTime.config = fireRunWeekdayTime(data);
+    charts.fireRunCalender.config = fireRunCalender(data, years); 
 
     for (const key in charts) {
         if (Object.hasOwnProperty.call(charts, key)) {
