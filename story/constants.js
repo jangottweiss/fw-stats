@@ -5,3 +5,7 @@ export const yearColors = ['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3'
 ];
 export const neutralColor = '#6C7A89';
 
+export function getColorForType(type) {
+    return typeColors[types.indexOf(type)];
+}
+

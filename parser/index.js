@@ -9,6 +9,9 @@ $('#einsatzberichtList > tbody > tr').each((rIdx, row) => {
         org: []
     };
     $(row).children().each((cIdx, column) => {
+        if(cIdx === 13) {
+            einsatz.intId = $(column).text().trim();
+        }
         if (cIdx === 3) {
             einsatz.date = new Date($(column).text().trim());
             einsatz.dateStr = $(column).text().trim();
