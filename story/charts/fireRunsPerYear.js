@@ -36,7 +36,13 @@ export function fireRunsPerYearConfig(data, years) {
             color: '#6C7A89',
             name: 'Einsätze pro Jahr',
             data: years.map(y => getDataForYear(data, y).length),
-            type: 'line'
+            type: 'line',
+            markPoint: {
+                data: [
+                    {type: 'max'},
+                    {type: 'min'}
+                ]
+            },
         }]
     };
 }

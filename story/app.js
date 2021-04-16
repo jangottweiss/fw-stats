@@ -7,6 +7,7 @@ import {
 import {
     getUnique,
     getDataForYear,
+    getDataForReportKeyword
 } from './util.js';
 
 import {
@@ -22,6 +23,10 @@ import {
     fireRunCalender
 } from './charts/calender.js'
 
+import {
+    fireRunReportKeyWord
+} from './charts/reportKeyWord.js'
+
 const charts = {
     fireRunsPerYear: {
         id: 'fireRunsPerYear',
@@ -34,6 +39,9 @@ const charts = {
     },
     fireRunCalender: {
         id: 'fireRunCalender',
+    },
+    fireRunReportKeyWord: {
+        id: 'fireRunReportKeyWord',
     }
 };
 
@@ -60,17 +68,14 @@ async function buildPage() {
     charts.fireRunsPerTypeYear.config = fireRunsPerTypeYearConfig(data, years); 
     charts.fireRunWeekdayTime.config = fireRunWeekdayTime(data);
     charts.fireRunCalender.config = fireRunCalender(data, years); 
+    charts.fireRunReportKeyWord.config = fireRunReportKeyWord(data, years);
 
     for (const key in charts) {
         if (Object.hasOwnProperty.call(charts, key)) {
             charts[key].chart = echarts.init(document.getElementById(charts[key].id));
             charts[key].chart.setOption(charts[key].config); 
         }
-    }
-
-    
-    
-    
+    }            
 }
 
 buildPage();

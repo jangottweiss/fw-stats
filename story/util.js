@@ -12,3 +12,8 @@ export function getDataForYear(data, year) {
     return data
         .filter(e => new Date(e.date).getFullYear() === year);
 }
+
+export function getDataForReportKeyword(data, key) {
+    return data
+        .filter(e => e.report.toLowerCase().includes(key.toLowerCase()))
+}
