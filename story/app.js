@@ -59,7 +59,7 @@ function loadData() {
             .then(response => response.json())
             .then((data) => {
                 resolve(data.map((e) => {
-                    e.date = new Date(e.date);
+                    e.date = new Date(e.dateStr);
                     return e;
                 }));
             })
