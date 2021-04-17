@@ -93,3 +93,19 @@ window.addEventListener('resize', () => {
         e.chart.resize();
     })
 });
+
+window.addEventListener(
+    "scroll",
+    function() {
+      const scrollTop =
+        document.documentElement["scrollTop"] || document.body["scrollTop"];
+      const scrollBottom =
+        (document.documentElement["scrollHeight"] ||
+          document.body["scrollHeight"]) - document.documentElement.clientHeight;
+      const scrollPercent = scrollTop / scrollBottom * 100 + "%";
+      document
+        .getElementById("_progress")
+        .style.setProperty("--scroll", scrollPercent);
+    },
+    { passive: true }
+  );
