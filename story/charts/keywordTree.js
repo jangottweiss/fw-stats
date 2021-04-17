@@ -66,14 +66,17 @@ export function typeKeywordTree(data) {
     }
 
     return {
+        title: {
+            text: 'Verteilung der Einsatzstichworte',
+        },
         tooltip: {
             formatter: function (info) {
-                var value = info.value;
-                var treePathInfo = info.treePathInfo;
-                var treePath = [];                
+                const value = info.value;
+                const treePathInfo = info.treePathInfo;                
+                const treePath = [];                 
                 for (var i = 1; i < treePathInfo.length; i++) {
                     treePath.push(treePathInfo[i].name);
-                }
+                }                
 
                 return [
                     `${treePath.join(' > ')}`,
