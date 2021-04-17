@@ -38,14 +38,18 @@ export function fireRunsPerYearConfig(data, years) {
             data: years.map(y => getDataForYear(data, y).length),
             type: 'line',
             markPoint: {
-                data: [
-                    {type: 'max'},
-                    {type: 'min'}
+                data: [{
+                        type: 'max'
+                    },
+                    {
+                        type: 'min'
+                    }
                 ]
             },
         }]
     };
 }
+
 export function fireRunsPerTypeYearConfig(data, years) {
     return {
         title: {
@@ -79,5 +83,48 @@ export function fireRunsPerTypeYearConfig(data, years) {
             data: years.map(y => getDataForYear(data.filter(e => e.type === type), y).length),
             type: 'line'
         })),
+    };
+}
+
+export function fireRunsPerTypeYearBar(data, years) {
+    function getTypeCntTypeYear() {
+        const arr = types.map(e => years.map(e => 0));
+        data
+            .forEach((e) => {
+                arr[types.indexOf(e.type)][years.indexOf(new Date(e.date).getFullYear())] += 1;
+            })
+        debugger;
+        return arr;
+    }
+
+    return {
+        legend: {
+            data: types,
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value'
+        },
+        yAxis: {
+            type: 'category',
+            data: years,
+        },
+        series: getTypeCntTypeYear().map((e, idx) => ({
+            name: uniqueType[idx],
+            type: 'bar',
+            stack: 'total',
+            label: {
+                show: true
+            },
+            emphasis: {
+                focus: 'series'
+            },
+            data: e
+        }))
     };
 }

@@ -18,6 +18,7 @@ export function fireRunReportKeyWord(data, years) {
         grid: {
             left: 40,
             bottom: 25,
+            right: 0,
             top: 120,
             containLabel: false,
         },

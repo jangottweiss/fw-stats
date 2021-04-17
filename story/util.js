@@ -13,6 +13,11 @@ export function getDataForYear(data, year) {
         .filter(e => new Date(e.date).getFullYear() === year);
 }
 
+export function getDataForType(data, type) {
+    return data
+        .filter(e => e.type === type);
+}
+
 export function getDataForReportKeyword(data, key) {
     return data
         .filter(e => e.report.toLowerCase().includes(key.toLowerCase()))

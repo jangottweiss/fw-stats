@@ -17,15 +17,19 @@ import {
 
 import {
     fireRunWeekdayTime,
-} from './charts/punchCard.js'
+} from './charts/punchCard.js';
 
 import {
     fireRunCalender
-} from './charts/calender.js'
+} from './charts/calender.js';
 
 import {
     fireRunReportKeyWord
-} from './charts/reportKeyWord.js'
+} from './charts/reportKeyWord.js';
+
+import {
+    typeKeywordTree
+} from './charts/keywordTree.js';
 
 const charts = {
     fireRunsPerYear: {
@@ -42,6 +46,9 @@ const charts = {
     },
     fireRunReportKeyWord: {
         id: 'fireRunReportKeyWord',
+    },
+    typeKeywordTree: {
+        id: 'typeKeywordTree',
     }
 };
 
@@ -69,6 +76,7 @@ async function buildPage() {
     charts.fireRunWeekdayTime.config = fireRunWeekdayTime(data);
     charts.fireRunCalender.config = fireRunCalender(data, years); 
     charts.fireRunReportKeyWord.config = fireRunReportKeyWord(data, years);
+    charts.typeKeywordTree.config = typeKeywordTree(data);
 
     for (const key in charts) {
         if (Object.hasOwnProperty.call(charts, key)) {
