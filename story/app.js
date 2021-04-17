@@ -55,11 +55,11 @@ const charts = {
 
 function loadData() {
     return new Promise((resolve, reject) => {
-        fetch('http://www.feuerwehr-neckarelz-diedesheim.de/mobile/php/daten.php?method=getOperationsStatistics')
+        fetch("data.json")
             .then(response => response.json())
             .then((data) => {
                 resolve(data.map((e) => {
-                    e.date = new Date(e.dateStr);
+                    e.date = new Date(e.date);
                     return e;
                 }));
             })
