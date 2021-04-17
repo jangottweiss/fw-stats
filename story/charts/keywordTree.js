@@ -83,6 +83,9 @@ export function typeKeywordTree(data) {
         },
         series: [{
             type: 'treemap',
+            breadcrumb: {
+                show: false,
+            },
             levels: [{
                     itemStyle: {
                         borderWidth: 0,
