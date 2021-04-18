@@ -17,6 +17,7 @@ export function fireRunsPerYearConfig(data, years) {
             left: 40,
             // top: 120,
             bottom: 25,
+            right: 0,
             containLabel: false,
         },
         tooltip: {
@@ -65,6 +66,7 @@ export function fireRunsPerTypeYearConfig(data, years) {
             left: 40,
             bottom: 25,
             top: 120,
+            right: 0,
             containLabel: false,
         },
         xAxis: {
@@ -105,6 +107,7 @@ export function fireRunsPerTypeYearBar(data, years) {
             left: '3%',
             right: '4%',
             bottom: '3%',
+            right: 0,
             containLabel: true
         },
         xAxis: {
