@@ -9,3 +9,4 @@ export function getColorForType(type) {
     return typeColors[types.indexOf(type)];
 }
 
+export const NELZ = 'Abt. Neckarelz-Diedesheim';
