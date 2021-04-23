@@ -32,7 +32,8 @@ import {
 } from './charts/keywordTree.js';
 
 import {
-    vehiclesBarChart
+    vehiclesBarChart,
+    departmentsBarChart
 } from './charts/vehicles.js'
 
 const charts = {
@@ -56,6 +57,9 @@ const charts = {
     },
     vehiclesBarChart: {
         id: 'vehiclesBarChart',
+    },
+    departmentsBarChart: {
+        id: 'departmentsBarChart',
     }
 };
 
@@ -85,6 +89,7 @@ async function buildPage() {
     charts.fireRunReportKeyWord.config = fireRunReportKeyWord(data, years);
     charts.typeKeywordTree.config = typeKeywordTree(data);
     charts.vehiclesBarChart.config = vehiclesBarChart(data);
+    charts.departmentsBarChart.config = departmentsBarChart(data);
 
     for (const key in charts) {
         if (Object.hasOwnProperty.call(charts, key)) {
